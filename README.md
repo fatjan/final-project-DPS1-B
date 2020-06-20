@@ -27,8 +27,8 @@ Dataset resource: https://www.kaggle.com/asdasdasasdas/garbage-classification
 4. Improve the model with transfer learning by using InceptionV3 and test the model
 5. Saved the model
 6.	Deploy the model (link to serve the model static files: https://garbage-model.imfast.io/results/model.json)
-   - Convert model to tensorflow.js
-   - Load the model into TensorFlow.js
+   - Convert the model to tensorflow.js
+   - Load the model into tensorflow.js
    The complete saved model and files converted into tensorflow-js can be found here https://garbage-model.imfast.io/results
 7.	Build the website using nuxt.js (https://github.com/fatjan/dps-1b-garbage-classification) 
 
