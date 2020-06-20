@@ -13,7 +13,16 @@ In this project, we use garbage classification data to distinguish organic and r
 
 We will utilize CNN for our image classification method.
 
-To improve our model, we use transfer learning.  We will be using a pre-trained model for image classification called InceptionV3
+To improve our model, we use transfer learning.  We will be using a pre-trained model for image classification called InceptionV3. Then its last layer was removed and the network was re-trained on garbage dataset. 
 
 Dataset resource: https://www.kaggle.com/asdasdasasdas/garbage-classification
 
+# Project Flow
+1. Upload data from Kaggle to Colab
+2. Preparing the data
+   - Unzip the dataset
+   - Split the dataset into training set and validation set
+   - Data preprocessing (data augmentation)
+3. Train the model with simple CNN (base model) and then test the model
+4. Improve the model with transfer learning by using InceptionV3
+5. Saved the model
