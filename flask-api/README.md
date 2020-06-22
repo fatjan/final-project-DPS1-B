@@ -9,4 +9,4 @@ activate virtual environment
 source env/bin/activate
 
 run
-pip3 main.py
+python3 main.py
