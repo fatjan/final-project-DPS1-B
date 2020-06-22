@@ -18,17 +18,20 @@ To improve our model, we use transfer learning.  We will be using a pre-trained 
 Dataset resource: https://www.kaggle.com/asdasdasasdas/garbage-classification
 
 ## Project Flow
-1. Upload data from Kaggle to Colab
-2. Preparing the data
+1. Find interesting issues while 
+1. Upload data from Kaggle to Colab.
+2. Preparing the data.
    - Unzip the dataset
    - Split the dataset into training set and validation set
    - Data preprocessing (data augmentation)
-3. Train the model with simple CNN (base model) and test the model
-4. Improve the model with transfer learning by using InceptionV3 and test the model
-5. Saved the model
-6.	Deploy the model (link to serve the model static files: https://garbage-model.imfast.io/results/model.json)
-   - Convert the model to tensorflow.js
-   - Load the model into tensorflow.js
+3. Train the model with simple CNN (base model) and test the model.
+4. Improve the model with transfer learning by using InceptionV3 and test the model.
+5. Saved the model using tensorflow js to get the model.json file and .bin files of the whole model.
+6.	Store and deploy the model packages and serve online (link to serve the model static files: https://garbage-model.imfast.io/results/model.json)
    The complete saved model and files converted into tensorflow-js can be found here https://garbage-model.imfast.io/results
 7.	Build the website using nuxt.js (https://github.com/fatjan/dps-1b-garbage-classification) 
+8. Implement tensorflow js inside nuxt web application to enable model predictions on the website.
+9. Test the built web app on the localhost.
+9. Deploy the web application into surge (http://garbage-classification.surge.sh/) and netlify (https://dps-1b-garbage-classification.netlify.app/)
+10. Test the deployed web on the website by uploading different garbage images to see the model predictions or image classification.
 
