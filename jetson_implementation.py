@@ -7,9 +7,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import tensorflow as tf
 
 # Set GPIO
-led_pin = [11, 13, 15, 19, 21, 23]
+led_pin = [23, 21, 19, 15, 13, 11]
 button_pin = 7
-all_off = [GPIO.HIGH, GPIO.HIGH, GPIO.HIGH, GPIO.HIGH, GPIO.HIGH, GPIO.HIGH]
+all_off = [1, 1, 1, 1, 1, 1]
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(led_pin, GPIO.OUT)
 GPIO.setup(button_pin, GPIO.IN)
@@ -76,29 +76,34 @@ while True:
         prediction_sort_index = np.argsort(prediction)
         first_prediction = prediction_sort_index[0][-1]
         second_prediction = prediction_sort_index[0][-2]
-        print(prediction)
+        #print(prediction)
         print('Result: {0}({1:.3f}), {2}({3:.3f})'.format(
             label[first_prediction],
             prediction[0][first_prediction],
             label[second_prediction],
             prediction[0][second_prediction]
         ))
+        GPIO.output(led_pin, all_off)
+        GPIO.output(led_pin[first_prediction], GPIO.LOW)
     button_state = GPIO.input(button_pin)
-    print(button_state)
+    #print(button_state)
     if button_state == 0 and previous_state == 1:
         prediction = model.predict(images.astype(np.float32), batch_size=10)
         prediction_sort_index = np.argsort(prediction)
         first_prediction = prediction_sort_index[0][-1]
         second_prediction = prediction_sort_index[0][-2]
-        print(prediction)
+        # print(prediction)
         print('Result: {0}({1:.3f}), {2}({3:.3f})'.format(
             label[first_prediction],
             prediction[0][first_prediction],
             label[second_prediction],
             prediction[0][second_prediction]
         ))
+        GPIO.output(led_pin, all_off)
+        GPIO.output(led_pin[first_prediction], GPIO.LOW)
     previous_state = button_state
 
 cap.release()
 cv2.destroyAllWindows()
+GPIO.output(led_pin, all_off)
 GPIO.cleanup()
